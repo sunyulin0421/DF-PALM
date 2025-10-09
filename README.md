@@ -13,7 +13,7 @@ October 8th, 2025: We submitted our paper DF-PALM to WWW'26 conference
 ***Illustrates the proposed DF-PALM framework.***
 
 ## 🔳 Model:
-We have shown the efficacy of PALM and other baselines (ZERO-SHOT, COOP, COCOOP) using [PENGI](https://github.com/microsoft/Pengi) model.
+We have shown the efficacy of DF-PALM and other baselines (ZERO-SHOT, COOP, COCOOP, PALM) using [PENGI](https://github.com/microsoft/Pengi) model.
 
 Download the pre-trained PENGI model using the link provided below and place the checkpoint file at path ***pengi/configs*** (after clonning the repo).
 | Model | Link |  Size  |
@@ -83,5 +83,4 @@ If you found this repo is helpful, please consider citing our papers:
 ```
 
 ## 🙏 Acknowledgement: 
-We used [PENGI](https://github.com/microsoft/Pengi) for model instantiation and borrowed a part of code from [COOP/COCOOP](https://github.com/KaiyangZhou/CoOp) to implement baselines. We thank the respective authors for releasing the code.
 We used [PENGI](https://github.com/microsoft/Pengi) for model instantiation, borrowed some code from [COOP/COCOOP](https://github.com/KaiyangZhou/CoOp) to implement the baseline, and implemented our code based on [PALM](https://github.com/asif-hanif/palm) code. We thank our respective authors for releasing the code.
