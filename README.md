@@ -8,7 +8,7 @@ January 6th, 2026: We submitted our paper DF-PALM to ACL'26 conference
 
 ## :information_desk_person: Overview:
 ![image](https://github.com/sunyulin0421/DF-PALM/blob/main/Illustration/Flowchart_Asy.png)
-***Illustrates the proposed DF-PALM framework.*** The figure illustrates the dual-branch structure of audio and text. First, the audio waveform is passed through the $f_A$ to obtain the audio embedding, which is then fed into a trainable lightweight neural network, Meta\_Net, to generate a dynamic context shift. This shift is combined with the static context vector $z_i$ to form an instance-aware dynamic context. Multiple class names are used as textual prompts and encoded by the $f_T$ to obtain text embeddings, which are then added to the dynamic context. These serve as the Keys and Values in a cross-attention computation with the Query (audio embedding), after which cosine similarity is computed to produce the final classification result.
+***The proposed DF-PALM framework.*** A. Inputs \& Frozen Backbones: Pre-trained audio and text encoders extract initial representations. B. Instance-Aware Context Generation: A learnable Meta\_Net ($g_\phi$) aggregates global audio context via mean pooling to predict instance-specific residuals $\Delta z(x)$. These residuals modulate the learnable static prompts $z_i$ to generate Dynamic Text Guidance. C. Asymmetric Cross-Modal Fusion: To bridge the modality gap, the module treats audio features as Queries and the dynamic text guidance as Keys/Values. Through multi-layer cross-attention, audio representations actively retrieve and align with relevant semantic contexts. Notably, the fusion is asymmetric in that only audio representations are iteratively updated, while text representations remain fixed as conditioning signals. D. Prediction Score: Final predictions are computed via the dot product between the refined audio features and the corresponding dynamic text guidance.
 
 ## 🔳 Model:
 We have shown the efficacy of DF-PALM and other baselines (ZERO-SHOT, COOP, COCOOP, PALM) using [PENGI](https://github.com/microsoft/Pengi) model.
@@ -61,7 +61,7 @@ We selected “Apply for the Artifacts Available badge”(Yes) during submission
 We commit to releasing them publicly upon paper acceptance and guarantee the reproducibility of the code.
 
 ## :tada: Result:
-Comparison of DF-PALM with Baselines. The accuracy scores of the methods (ZERO SHOT, COOP, COCOOP, PALM and our proposed method DF-PALM) across 11 datasets are presented. For each method (except ZERO SHOT), experiments were performed using three different seeds. The accuracy scores for all seeds are reported, along with the average score. Bold values indicate the best average score in each row. Compared to the baselines, our proposed method achieves favorable results, with an average improvement of 8.3% over COOP, 5.9% over COCOOP and 2.8% over PALM.
+Comparison of DF-PALM with baselines across 11 datasets. We report the accuracy scores (\%) for all methods. For reproducibility, experiments (except Zero-Shot) were performed using three different random seeds, denoted as S-0, S-1, and S-2. The average score (AVG) is also reported. Bold values indicate the best average performance. Compared to baselines, DF-PALM achieves substantial gains: +8.3\% over CoOp, +5.9\% over CoCoOp, and +2.8\% over PALM.
 ![image](https://github.com/sunyulin0421/DF-PALM/blob/main/Illustration/result.png)
 ![image](https://github.com/sunyulin0421/DF-PALM/blob/main/Illustration/bar_accuracy_f1_stars.png)
 
@@ -70,7 +70,7 @@ The impact of different numbers of layers and heads in the cross-attention modul
 ![image](https://github.com/sunyulin0421/DF-PALM/blob/main/Illustration/full.png)
 
 ## ❄️ Ablation Studies:
-Ablation studies. Among them, w/o Dynamic Context represents DF-PALM removing the context generator and only using cross-attention; w/o Cross-Attention represents the retention of the dynamic context generator without going through the cross-attention module.
+Ablation studies. (\%). w/o Dynamic Context: static prompts + Asymmetric Fusion. w/o Asymmetric Fusion: Dynamic Context + Cosine Similarity.
 ![image](https://github.com/sunyulin0421/DF-PALM/blob/main/Illustration/Ablation_Studies.png)
 ![image](https://github.com/sunyulin0421/DF-PALM/blob/main/Illustration/ablation_bar_plot.png)
 
