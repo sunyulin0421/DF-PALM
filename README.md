@@ -65,7 +65,7 @@ Comparison of DF-PALM with baselines across 11 datasets. We report the accuracy 
 ![image](https://github.com/sunyulin0421/DF-PALM/blob/main/Illustration/result.png)
 ![image](https://github.com/sunyulin0421/DF-PALM/blob/main/Illustration/bar_accuracy_f1_stars.png)
 
-The impact of different numbers of layers and heads in the cross-attention module on model performance.
+Impact of cross-attention depth ($L$) and width (Heads). The figure comprises four sub-plots: (a-b) Line graphs illustrating the trends in Accuracy and F1-Score; (c-d) Heatmaps highlighting the ``sweet spot'' configuration ($L=3$, 4 Heads) which balances model capacity and overfitting risks.
 
 ![image](https://github.com/sunyulin0421/DF-PALM/blob/main/Illustration/full.png)
 
