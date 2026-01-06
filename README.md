@@ -71,6 +71,7 @@ Impact of cross-attention depth ($L$) and width (Heads). The figure comprises fo
 
 ## ❄️ Ablation Studies:
 Ablation studies. (\%). w/o Dynamic Context: static prompts + Asymmetric Fusion. w/o Asymmetric Fusion: Dynamic Context + Cosine Similarity.
+
 ![image](https://github.com/sunyulin0421/DF-PALM/blob/main/Illustration/Ablation_Studies.png)
 ![image](https://github.com/sunyulin0421/DF-PALM/blob/main/Illustration/ablation_bar_plot.png)
 
