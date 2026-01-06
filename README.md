@@ -9,7 +9,7 @@ Official implementation: "DF-PALM: Dynamic Fusion Prompt Learning for Audio–La
 October 8th, 2025: We submitted our paper DF-PALM to WWW'26 conference
 
 ## :information_desk_person: Overview:
-![image](https://github.com/sunyulin0421/DF-PALM/blob/main/Illustration/flowchart.png)
+![image](https://github.com/sunyulin0421/DF-PALM/blob/main/Illustration/Flowchart_Asy.png)
 ***Illustrates the proposed DF-PALM framework.*** The figure illustrates the dual-branch structure of audio and text. First, the audio waveform is passed through the $f_A$ to obtain the audio embedding, which is then fed into a trainable lightweight neural network, Meta\_Net, to generate a dynamic context shift. This shift is combined with the static context vector $z_i$ to form an instance-aware dynamic context. Multiple class names are used as textual prompts and encoded by the $f_T$ to obtain text embeddings, which are then added to the dynamic context. These serve as the Keys and Values in a cross-attention computation with the Query (audio embedding), after which cosine similarity is computed to produce the final classification result.
 
 ## 🔳 Model:
