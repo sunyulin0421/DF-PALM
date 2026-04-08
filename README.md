@@ -8,7 +8,7 @@ April 1st, 2026: We submitted our paper DF-PALM to ACM MM'26 conference
 
 ## :information_desk_person: Overview:
 ![image](https://github.com/sunyulin0421/DF-PALM/blob/main/Illustration/Flowchart_Asy.png)
-***The proposed DF-PALM framework.*** A. Inputs \& Frozen Backbones: Pre-trained audio and text encoders extract initial representations. B. Instance-Aware Context Generation: A learnable Meta\_Net ($g_\phi$) aggregates global audio context via mean pooling to predict instance-specific residuals $\Delta z(x)$. These residuals modulate the learnable static prompts $z_i$ to generate Dynamic Text Guidance. C. Asymmetric Cross-Modal Fusion: To bridge the modality gap, the module treats audio features as Queries and the dynamic text guidance as Keys/Values. Through multi-layer cross-attention, audio representations actively retrieve and align with relevant semantic contexts. Notably, the fusion is asymmetric in that only audio representations are iteratively updated, while text representations remain fixed as conditioning signals. D. Prediction Score: Final predictions are computed via the dot product between the refined audio features and the corresponding dynamic text guidance.
+***Overview of the proposed DF-PALM framework.*** (A) Frozen audio and text encoders extract initial representations. (B) An instance-level dynamic context generator aggregates global audio context to predict residuals, transforming static prompts into dynamic text guidance. (C) An asymmetric cross-modal fusion module uses audio features as active queries and dynamic text embeddings as fixed keys and values, progressively refining audio representations via multi-layer cross-attention. (D) Final predictions are computed via the dot product between the refined audio features and the corresponding dynamic text guidance.
 
 ## 🔳 Model:
 We have shown the efficacy of DF-PALM and other baselines (ZERO-SHOT, COOP, COCOOP, PALM) using [PENGI](https://github.com/microsoft/Pengi) model.
@@ -61,7 +61,7 @@ We selected “Apply for the Artifacts Available badge”(Yes) during submission
 We commit to releasing them publicly upon paper acceptance and guarantee the reproducibility of the code.
 
 ## :tada: Result:
-Comparison of DF-PALM with baselines across 11 datasets. We report the accuracy scores (\%) for all methods. For reproducibility, experiments (except Zero-Shot) were performed using three different random seeds, denoted as S-0, S-1, and S-2. The average score (AVG) is also reported. Bold values indicate the best average performance. Compared to baselines, DF-PALM achieves substantial gains: +8.3\% over CoOp, +5.9\% over CoCoOp, and +2.8\% over PALM.
+Performance comparison of \textbf{DF-PALM} against established baselines across 11 datasets. We report the accuracy scores \textbf{(\%)} for all methods. For reproducibility, experiments (except Zero-Shot) were performed utilizing three different random seeds, denoted as \textbf{S-0}, \textbf{S-1}, and \textbf{S-2}. The average score (\textbf{AVG}) is also reported. \textbf{Bold} values indicate the best average performance. Compared to the baselines, \textbf{DF-PALM} achieves substantial gains: \textbf{+8.3\%} over CoOp, \textbf{+5.9\%} over CoCoOp, and \textbf{+2.8\%} over PALM.
 ![image](https://github.com/sunyulin0421/DF-PALM/blob/main/Illustration/result.png)
 ![image](https://github.com/sunyulin0421/DF-PALM/blob/main/Illustration/bar_accuracy_f1_stars.png)
 
