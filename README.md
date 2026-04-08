@@ -61,19 +61,25 @@ We selected “Apply for the Artifacts Available badge”(Yes) during submission
 We commit to releasing them publicly upon paper acceptance and guarantee the reproducibility of the code.
 
 ## :tada: Result:
-Performance comparison of \textbf{DF-PALM} against established baselines across 11 datasets. We report the accuracy scores \textbf{(\%)} for all methods. For reproducibility, experiments (except Zero-Shot) were performed utilizing three different random seeds, denoted as \textbf{S-0}, \textbf{S-1}, and \textbf{S-2}. The average score (\textbf{AVG}) is also reported. \textbf{Bold} values indicate the best average performance. Compared to the baselines, \textbf{DF-PALM} achieves substantial gains: \textbf{+8.3\%} over CoOp, \textbf{+5.9\%} over CoCoOp, and \textbf{+2.8\%} over PALM.
+Performance comparison of **DF-PALM** against established baselines across 11 datasets. We report the accuracy scores **%** for all methods. For reproducibility, experiments (except Zero-Shot) were performed utilizing three different random seeds, denoted as **S-0**, **S-1**, and **S-2**. The average score (**AVG**) is also reported. **Bold** values indicate the best average performance. Compared to the baselines, **DF-PALM** achieves substantial gains: **+8.3%** over CoOp, **+5.9%** over CoCoOp, and **+2.8%** over PALM.
 ![image](https://github.com/sunyulin0421/DF-PALM/blob/main/Illustration/result.png)
 ![image](https://github.com/sunyulin0421/DF-PALM/blob/main/Illustration/bar_accuracy_f1_stars.png)
 
-Impact of cross-attention depth ($L$) and width (Heads). The figure comprises four sub-plots: (a-b) Line graphs illustrating the trends in Accuracy and F1-Score; (c-d) Heatmaps highlighting the ``sweet spot'' configuration ($L=3$, 4 Heads) which balances model capacity and overfitting risks.
+Performance under varying shot settings across four diverse audio benchmarks. Average accuracy is reported under 1, 4, 8, 16, and 32-shot settings. \textbf{DF-PALM} exhibits strong and consistent performance across the few-shot spectrum, with particularly clear advantages in the lower-shot regimes.
+![image](https://github.com/sunyulin0421/DF-PALM/blob/main/Illustration/fewshot.png)
+
+Impact of cross-attention depth ($L$) and the number of attention heads. The heatmaps illustrate the performance variations in terms of Average Accuracy (left) and F1-Score (right). The results highlight the optimal configuration ($L=3$, 4 heads), which effectively balances model capacity and the risk of overfitting in few-shot regimes.
 
 ![image](https://github.com/sunyulin0421/DF-PALM/blob/main/Illustration/full.png)
 
+Synthetic module-level scalability benchmark on a single RTX 4090 GPU. Top: inference latency per sample as the class cardinality increases from 50 to 1000. Bottom: peak GPU memory usage under the same setting. \textbf{DF-PALM} introduces only modest additional overhead relative to PALM, indicating good practical scalability in large-class settings.
+![image](https://github.com/sunyulin0421/DF-PALM/blob/main/Illustration/full.png)
+
+
 ## ❄️ Ablation Studies:
-Ablation studies. (\%). w/o Dynamic Context: static prompts + Asymmetric Fusion. w/o Asymmetric Fusion: Dynamic Context + Cosine Similarity.
+Ablation studies validating the components of **DF-PALM** **(%)**. The variant without dynamic context utilizes static prompts coupled with asymmetric fusion. The variant without asymmetric fusion utilizes dynamic context coupled with simple cosine similarity.
 
 ![image](https://github.com/sunyulin0421/DF-PALM/blob/main/Illustration/Ablation_Studies.png)
-![image](https://github.com/sunyulin0421/DF-PALM/blob/main/Illustration/ablation_bar_plot.png)
 
 
 ## :star: Cites:
