@@ -65,7 +65,7 @@ Performance comparison of **DF-PALM** against established baselines across 11 da
 ![image](https://github.com/sunyulin0421/DF-PALM/blob/main/Illustration/result.png)
 ![image](https://github.com/sunyulin0421/DF-PALM/blob/main/Illustration/bar_accuracy_f1_stars.png)
 
-Performance under varying shot settings across four diverse audio benchmarks. Average accuracy is reported under 1, 4, 8, 16, and 32-shot settings. \textbf{DF-PALM} exhibits strong and consistent performance across the few-shot spectrum, with particularly clear advantages in the lower-shot regimes.
+Performance under varying shot settings across four diverse audio benchmarks. Average accuracy is reported under 1, 4, 8, 16, and 32-shot settings. **DF-PALM** exhibits strong and consistent performance across the few-shot spectrum, with particularly clear advantages in the lower-shot regimes.
 ![image](https://github.com/sunyulin0421/DF-PALM/blob/main/Illustration/fewshot.png)
 
 Impact of cross-attention depth ($L$) and the number of attention heads. The heatmaps illustrate the performance variations in terms of Average Accuracy (left) and F1-Score (right). The results highlight the optimal configuration ($L=3$, 4 heads), which effectively balances model capacity and the risk of overfitting in few-shot regimes.
