@@ -72,8 +72,8 @@ Impact of cross-attention depth ($L$) and the number of attention heads. The hea
 
 ![image](https://github.com/sunyulin0421/DF-PALM/blob/main/Illustration/full.png)
 
-Synthetic module-level scalability benchmark on a single RTX 4090 GPU. Top: inference latency per sample as the class cardinality increases from 50 to 1000. Bottom: peak GPU memory usage under the same setting. \textbf{DF-PALM} introduces only modest additional overhead relative to PALM, indicating good practical scalability in large-class settings.
-![image](https://github.com/sunyulin0421/DF-PALM/blob/main/Illustration/full.png)
+Synthetic module-level scalability benchmark on a single RTX 4090 GPU. Top: inference latency per sample as the class cardinality increases from 50 to 1000. Bottom: peak GPU memory usage under the same setting. **DF-PALM** introduces only modest additional overhead relative to PALM, indicating good practical scalability in large-class settings.
+![image](https://github.com/sunyulin0421/DF-PALM/blob/main/Illustration/scalability.png)
 
 
 ## ❄️ Ablation Studies:
