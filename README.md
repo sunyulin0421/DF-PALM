@@ -105,7 +105,8 @@ bash results.sh
 **Note** For multi-fold datasets, we run experiments using cross-validation and then report average results on each seed.
 
 ## :tada: Result:
-Accuracy (\%) across 11 audio classification benchmarks in the main 16-shot setting. FS-AVG and ProKeR require no gradient-based training. **S-0--S-2** denote three matched seeds, and AVG denotes their mean; FS-AVG reports AVG only. Folded benchmarks are averaged within each seed, and AVERAGE denotes the unweighted cross-benchmark mean. Bold marks the highest AVG in each row. Complete Zero-Shot, CoOp, and seed-level FS-AVG results are reported in Appendix~E.
+Accuracy (\%) across 11 audio classification benchmarks in the main 16-shot setting. FS-AVG and ProKeR require no gradient-based training. **S-0--S-2** denote matched seeds, including the support subsets used by the training-free methods, and AVG denotes their mean. Scores are averaged across folds within each seed where applicable; AVERAGE is the unweighted cross-benchmark mean. Bold marks the highest AVG in each benchmark row and overall. For the complete results, please refer to Appendix E.
+
 ![image](https://github.com/sunyulin0421/DF-PALM/blob/main/Illustration/result.png)
 ![image](https://github.com/sunyulin0421/DF-PALM/blob/main/Illustration/bar_accuracy_f1_stars.png)
 
