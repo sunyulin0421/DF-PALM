@@ -105,20 +105,13 @@ bash results.sh
 **Note** For multi-fold datasets, we run experiments using cross-validation and then report average results on each seed.
 
 ## :tada: Result:
-Accuracy (\%) across 11 audio classification benchmarks in the main 16-shot setting. FS-AVG and ProKeR require no gradient-based training. **S-0--S-2** denote matched seeds, including the support subsets used by the training-free methods, and AVG denotes their mean. Scores are averaged across folds within each seed where applicable; AVERAGE is the unweighted cross-benchmark mean. Bold marks the highest AVG in each benchmark row and overall. For the complete results, please refer to Appendix E.
+**Complete 16-shot classification accuracy across 11 audio benchmarks.** **a**, Zero-shot and established prompt-learning baselines, comprising **Zero-Shot, CoOp, CoCoOp and PALM**. **b**, Training-free support-set adaptation methods, **FS-AVG (PENGI)** and **ProKeR (PENGI)**, compared with **DF-PALM**. Values are classification accuracies (\%). **S-0--S-2** indicate three matched random seeds that use identical seed-specific, class-wise support subsets across few-shot methods; Zero-Shot is evaluated without support examples. For benchmarks with cross-validation, results are first averaged across folds within each seed. AVG denotes the mean across the three seeds, and AVERAGE denotes the unweighted mean across all 11 benchmarks. Bold values indicate the highest seed-averaged accuracy for each benchmark and the highest overall cross-benchmark mean. FS-AVG and ProKeR construct support-dependent predictors without gradient-based parameter optimization.
 
 ![image](https://github.com/sunyulin0421/DF-PALM/blob/main/Illustration/result.png)
-![image](https://github.com/sunyulin0421/DF-PALM/blob/main/Illustration/bar_accuracy_f1_stars.png)
 
-Performance under varying shot settings across four diverse audio benchmarks. Average accuracy is reported under 1, 4, 8, 16, and 32-shot settings. **DF-PALM** exhibits strong and consistent performance across the few-shot spectrum, with particularly clear advantages in the lower-shot regimes.
-![image](https://github.com/sunyulin0421/DF-PALM/blob/main/Illustration/fewshot.png)
+**Complete 16-shot macro-averaged F1 performance across 11 audio benchmarks.** **a**, Zero-shot and established prompt-learning baselines, comprising **Zero-Shot, CoOp, CoCoOp and PALM.** **b**, Training-free support-set adaptation methods, **FS-AVG (PENGI)** and **ProKeR (PENGI)**, compared with **DF-PALM**. Values are macro-averaged F1 scores (Macro-F1; \%). **S-0--S-2** indicate three matched random seeds using identical seed-specific, class-wise support subsets across all few-shot methods; Zero-Shot is evaluated without support examples. For benchmarks evaluated by cross-validation, scores are first averaged across folds within each seed. AVG denotes the mean across the three seeds, whereas AVERAGE denotes the unweighted mean across all 11 benchmarks. Bold values indicate the highest seed-averaged Macro-F1 for each benchmark and the highest overall cross-benchmark mean. FS-AVG and ProKeR construct support-dependent predictors without gradient-based parameter optimization.
 
-Impact of cross-attention depth ($L$) and the number of attention heads. The heatmaps illustrate the performance variations in terms of Average Accuracy (left) and F1-Score (right). The results highlight the optimal configuration ($L=3$, 4 heads), which effectively balances model capacity and the risk of overfitting in few-shot regimes.
-
-![image](https://github.com/sunyulin0421/DF-PALM/blob/main/Illustration/full.png)
-
-Synthetic module-level scalability benchmark on a single RTX 4090 GPU. Top: inference latency per sample as the class cardinality increases from 50 to 1000. Bottom: peak GPU memory usage under the same setting. **DF-PALM** introduces only modest additional overhead relative to PALM, indicating good practical scalability in large-class settings.
-![image](https://github.com/sunyulin0421/DF-PALM/blob/main/Illustration/scalability.png)
+![image](https://github.com/sunyulin0421/DF-PALM/blob/main/Illustration/result_f1.png)
 
 
 ## ❄️ Ablation Studies:
