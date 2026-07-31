@@ -1,10 +1,10 @@
 # DF-PALM
 Official implementation: "DF-PALM: Dynamic Fusion Prompt Learning for Audio–Language Models"
 
-***All code, model weights, datasets, and log files have been fully prepared. We commit to releasing them publicly upon paper acceptance and guarantee the reproducibility of the code.***
+***All code, model weights, datasets, and log files have been released. We guarantee the reproducibility of our code and welcome researchers to reproduce our results and conduct follow-up research on our work.***
 
 ## :loudspeaker: News:
-April 1st, 2026: We submitted our paper DF-PALM to ACM MM'26 conference
+July 31, 2026: We submitted our paper DF-PALM to AAAI'27 conference(main track)
 
 ## :information_desk_person: Overview:
 ![image](https://github.com/sunyulin0421/DF-PALM/blob/main/Illustration/Flowchart_Asy.png)
