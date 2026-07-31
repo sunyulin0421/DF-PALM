@@ -120,4 +120,4 @@ If you found this repo is helpful, please consider citing our papers:
 ```
 
 ## 🙏 Acknowledgement: 
-We used [PENGI](https://github.com/microsoft/Pengi) for model instantiation, borrowed some code from [COOP/COCOOP](https://github.com/KaiyangZhou/CoOp), FS-AVG, ProKeR to implement the baseline, and implemented our code based on [PALM](https://github.com/asif-hanif/palm) code. We thank our respective authors for releasing the code.
+We used [PENGI](https://github.com/microsoft/Pengi) for model instantiation, borrowed some code from [COOP/COCOOP](https://github.com/KaiyangZhou/CoOp), [FS-AVG](https://arxiv.org/abs/2507.20036), [ProKeR](https://github.com/ybendou/ProKeR) to implement the baseline, and implemented our code based on [PALM](https://github.com/asif-hanif/palm) code. We thank our respective authors for releasing the code.
