@@ -114,16 +114,10 @@ bash results.sh
 ![image](https://github.com/sunyulin0421/DF-PALM/blob/main/Illustration/result_f1.png)
 
 
-## ❄️ Ablation Studies:
-Ablation studies validating the components of **DF-PALM** **(%)**. The variant without dynamic context utilizes static prompts coupled with asymmetric fusion. The variant without asymmetric fusion utilizes dynamic context coupled with simple cosine similarity.
-
-![image](https://github.com/sunyulin0421/DF-PALM/blob/main/Illustration/Ablation_Studies.png)
-
-
 ## :star: Cites:
 If you found this repo is helpful, please consider citing our papers:
 ```
 ```
 
 ## 🙏 Acknowledgement: 
-We used [PENGI](https://github.com/microsoft/Pengi) for model instantiation, borrowed some code from [COOP/COCOOP](https://github.com/KaiyangZhou/CoOp) to implement the baseline, and implemented our code based on [PALM](https://github.com/asif-hanif/palm) code. We thank our respective authors for releasing the code.
+We used [PENGI](https://github.com/microsoft/Pengi) for model instantiation, borrowed some code from [COOP/COCOOP](https://github.com/KaiyangZhou/CoOp), FS-AVG, ProKeR to implement the baseline, and implemented our code based on [PALM](https://github.com/asif-hanif/palm) code. We thank our respective authors for releasing the code.
