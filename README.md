@@ -8,10 +8,22 @@ July 31, 2026: We submitted our paper DF-PALM to AAAI'27 conference(main track)
 
 ## :information_desk_person: Overview:
 ![image](https://github.com/sunyulin0421/DF-PALM/blob/main/Illustration/Flowchart_Asy.png)
-***Overview of the proposed DF-PALM framework.*** (A) Frozen audio and text encoders extract initial representations. (B) An instance-level dynamic context generator aggregates global audio context to predict residuals, transforming static prompts into dynamic text guidance. (C) An asymmetric cross-modal fusion module uses audio features as active queries and dynamic text embeddings as fixed keys and values, progressively refining audio representations via multi-layer cross-attention. (D) Final predictions are computed via the dot product between the refined audio features and the corresponding dynamic text guidance.
+***Overview of the proposed DF-PALM framework.*** (A) Frozen encoders produce the global audio representation and base class representations. (B) The dynamic context generator constructs instance-conditioned class representations. (C) Asymmetric cross-modal fusion refines the audio representation using the conditioned class representations. (D) Similarity scoring produces the classification logits.
+
+## ⚙️ Installation:
+1. Create a conda environment
+```
+conda create --name df_palm python=3.8
+conda activate df_palm
+```
+2. Install PyTorch and other dependencies
+```
+cd df_palm
+pip install -r requirements.txt
+```
 
 ## 🔳 Model:
-We have shown the efficacy of DF-PALM and other baselines (ZERO-SHOT, COOP, COCOOP, PALM) using [PENGI](https://github.com/microsoft/Pengi) model.
+We have shown the efficacy of DF-PALM and other baselines (ZERO-SHOT, CoOP, CoCoOP, PALM, FS-AVG, ProKeR) using [PENGI](https://github.com/microsoft/Pengi) model.
 
 Download the pre-trained PENGI model using the link provided below and place the checkpoint file at path ***pengi/configs*** (after clonning the repo).
 | Model | Link |  Size  |
@@ -24,7 +36,7 @@ wget https://zenodo.org/records/8387083/files/base.pth
 ```
 
 ## 📃 Datasets:
-We have performed experiments on 11 audio classification datasets.
+We have performed experiments on 11 audio classification datasets. Instructions for downloading/processing datasets used by our method have been provided in the DATASETS.md.
 | Dataset | Year | Type |  Classes  | Size |
 | :-------| :-----:  | :----  | :----: | :----: |
 | [Beijing-Opera](https://compmusic.upf.edu/bo-perc-dataset) | 2014  | 	Instrument Classification  | 4 | 69 MB |
@@ -55,13 +67,45 @@ Audio-Datasets/
     ├── VocalSound/
 ```
 
-## :runner: Run Experiments:
-We selected “Apply for the Artifacts Available badge”(Yes) during submission.
+## ❄️ Code Structure:
+There are three main folders in this repo: `pengi`, `df_palm`, `utils`. Code in `pengi` folder is taken from `PENGI` repo for model instantiation. Implementation of baselines (`zero-shot`, `coop`, `cocoop`, `palm`, `fs-avg`, `proker`) and our method `df_palm` is in `df_palm` folder. Class definitions of audio and text encoder of `PENGI` model can be found in `df_palm/encoders.py` file. Training and dataset related code is in `utils` folder.
 
-We commit to releasing them publicly upon paper acceptance and guarantee the reproducibility of the code.
+## :runner: Run Experiments:
+We have performed all experiments on `NVIDIA RTX 4090` GPU. Shell scripts to run experiments can be found in `scripts` folder.
+```
+## General Command Structure
+bash  <SHELL_SCRIPT>  <METHOD_NAME>
+```
+
+Following methods (including `df_palm`) are supported in this repository:
+
+`zero-shot`, `coop`, `cocoop`, `palm`, `fs-avg`, `proker`, `df_palm`
+
+Examples to run `df_palm` method on different audio classifiction datasets have been provided below:
+```
+bash scripts/beijing_opera.sh df_palm
+bash scripts/crema_d.sh df_palm
+bash scripts/esc50_actions.sh df_palm
+bash scripts/esc50.sh df_palm
+bash scripts/gt_music_genre.sh df_palm
+bash scripts/ns_instruments.sh df_palm
+bash scripts/ravdess.sh df_palm
+bash scripts/sesa.sh df_palm
+bash scripts/tut.sh df_palm
+bash scripts/urban_sound.sh df_palm
+bash scripts/vocal_sound.sh df_palm
+```
+
+Results are saved in `json` format in logs directory. To process `results` (take an average across all folds/seeds and print), run the following command (after running all experiments):
+```
+cd logs
+bash results.sh
+```
+
+**Note** For multi-fold datasets, we run experiments using cross-validation and then report average results on each seed.
 
 ## :tada: Result:
-Performance comparison of **DF-PALM** against established baselines across 11 datasets. We report the accuracy scores **%** for all methods. For reproducibility, experiments (except Zero-Shot) were performed utilizing three different random seeds, denoted as **S-0**, **S-1**, and **S-2**. The average score (**AVG**) is also reported. **Bold** values indicate the best average performance. Compared to the baselines, **DF-PALM** achieves substantial gains: **+8.3%** over CoOp, **+5.9%** over CoCoOp, and **+2.8%** over PALM.
+Accuracy (\%) across 11 audio classification benchmarks in the main 16-shot setting. FS-AVG and ProKeR require no gradient-based training. **S-0--S-2** denote three matched seeds, and AVG denotes their mean; FS-AVG reports AVG only. Folded benchmarks are averaged within each seed, and AVERAGE denotes the unweighted cross-benchmark mean. Bold marks the highest AVG in each row. Complete Zero-Shot, CoOp, and seed-level FS-AVG results are reported in Appendix~E.
 ![image](https://github.com/sunyulin0421/DF-PALM/blob/main/Illustration/result.png)
 ![image](https://github.com/sunyulin0421/DF-PALM/blob/main/Illustration/bar_accuracy_f1_stars.png)
 
