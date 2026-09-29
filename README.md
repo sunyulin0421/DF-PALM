@@ -1,14 +1,16 @@
 # DF-PALM
 Official implementation: "DF-PALM: Dynamic Fusion Prompt Learning for Audio–Language Models"
 
-***All code, model weights, datasets, and log files have been released. We guarantee the reproducibility of our code and welcome researchers to reproduce our results and conduct follow-up research on our work.***
+<br>
+
+<p align="center">
+  <img src="Illustration/Flowchart_Asy.png" alt="Fig1" width="900" />
+</p>
+
+<h3 align="center">Overview of the proposed DF-PALM framework.</h3>
 
 ## :loudspeaker: News:
-July 31, 2026: We submitted our paper DF-PALM to AAAI'27 conference(main track)
-
-## :information_desk_person: Overview:
-![image](https://github.com/sunyulin0421/DF-PALM/blob/main/Illustration/Flowchart_Asy.png)
-***Overview of the proposed DF-PALM framework.*** (A) Frozen encoders produce the global audio representation and base class representations. (B) The dynamic context generator constructs instance-conditioned class representations. (C) Asymmetric cross-modal fusion refines the audio representation using the conditioned class representations. (D) Similarity scoring produces the classification logits.
+Oct. 1, 2026: We submitted our paper DF-PALM to TCSVT Journal.
 
 ## ⚙️ Installation:
 1. Create a conda environment
@@ -103,16 +105,6 @@ bash results.sh
 ```
 
 **Note** For multi-fold datasets, we run experiments using cross-validation and then report average results on each seed.
-
-## :tada: Result:
-**Complete 16-shot classification accuracy across 11 audio benchmarks.** **a**, Zero-shot and established prompt-learning baselines, comprising **Zero-Shot, CoOp, CoCoOp and PALM**. **b**, Training-free support-set adaptation methods, **FS-AVG (PENGI)** and **ProKeR (PENGI)**, compared with **DF-PALM**. Values are classification accuracies (\%). **S-0--S-2** indicate three matched random seeds that use identical seed-specific, class-wise support subsets across few-shot methods; Zero-Shot is evaluated without support examples. For benchmarks with cross-validation, results are first averaged across folds within each seed. AVG denotes the mean across the three seeds, and AVERAGE denotes the unweighted mean across all 11 benchmarks. Bold values indicate the highest seed-averaged accuracy for each benchmark and the highest overall cross-benchmark mean. FS-AVG and ProKeR construct support-dependent predictors without gradient-based parameter optimization.
-
-![image](https://github.com/sunyulin0421/DF-PALM/blob/main/Illustration/result.png)
-
-**Complete 16-shot macro-averaged F1 performance across 11 audio benchmarks.** **a**, Zero-shot and established prompt-learning baselines, comprising **Zero-Shot, CoOp, CoCoOp and PALM.** **b**, Training-free support-set adaptation methods, **FS-AVG (PENGI)** and **ProKeR (PENGI)**, compared with **DF-PALM**. Values are macro-averaged F1 scores (Macro-F1; \%). **S-0--S-2** indicate three matched random seeds using identical seed-specific, class-wise support subsets across all few-shot methods; Zero-Shot is evaluated without support examples. For benchmarks evaluated by cross-validation, scores are first averaged across folds within each seed. AVG denotes the mean across the three seeds, whereas AVERAGE denotes the unweighted mean across all 11 benchmarks. Bold values indicate the highest seed-averaged Macro-F1 for each benchmark and the highest overall cross-benchmark mean. FS-AVG and ProKeR construct support-dependent predictors without gradient-based parameter optimization.
-
-![image](https://github.com/sunyulin0421/DF-PALM/blob/main/Illustration/result_f1.png)
-
 
 ## :star: Cites:
 If you found this repo is helpful, please consider citing our papers:
