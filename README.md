@@ -10,7 +10,7 @@ Official implementation: "DF-PALM: Dynamic Fusion Prompt Learning for Audio–La
 <h3 align="center">Overview of the proposed DF-PALM framework.</h3>
 
 ## :loudspeaker: News:
-Oct. 1, 2026: We submitted our paper DF-PALM to TCSVT Journal.
+Oct. 18, 2026: We submitted our paper DF-PALM to TMM Journal.
 
 ## ⚙️ Installation:
 1. Create a conda environment
